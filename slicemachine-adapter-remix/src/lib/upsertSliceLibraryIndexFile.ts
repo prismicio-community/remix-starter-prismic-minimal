@@ -28,12 +28,12 @@ export const upsertSliceLibraryIndexFile = async (
 
   if (args.options.lazyLoadSlices) {
     contents = stripIndent`
-			${NON_EDITABLE_FILE_BANNER}
+      ${NON_EDITABLE_FILE_BANNER}
 
-			import dynamic from 'next/dynamic'
+      import { lazy } from 'react'
 
-			export const components = {
-				${(
+      export const components = {
+        ${(
           await Promise.all(
             slices.map(async (slice) => {
               const id = slice.model.id;
@@ -45,17 +45,17 @@ export const upsertSliceLibraryIndexFile = async (
                 }),
               );
 
-              return `${id}: dynamic(() => import('./${dirName}'))`;
+              return `${id}: lazy(() => import('./${dirName}'))`;
             }),
           )
         ).join(",\n")}
-			}
-		`;
+        }
+      `;
   } else {
     contents = stripIndent`
-			${NON_EDITABLE_FILE_BANNER}
+      ${NON_EDITABLE_FILE_BANNER}
 
-			${(
+      ${(
         await Promise.all(
           slices.map(async (slice) => {
             const dirName = path.basename(
@@ -72,8 +72,8 @@ export const upsertSliceLibraryIndexFile = async (
         )
       ).join("\n")}
 
-			export const components = {
-				${slices
+      export const components = {
+        ${slices
           .map((slice) => {
             const id = slice.model.id;
             const componentName = pascalCase(slice.model.name);
@@ -81,8 +81,8 @@ export const upsertSliceLibraryIndexFile = async (
             return `${id}: ${componentName},`;
           })
           .join("\n")}
-			}
-		`;
+        }
+      `;
   }
 
   const extension = await getJSFileExtension({
