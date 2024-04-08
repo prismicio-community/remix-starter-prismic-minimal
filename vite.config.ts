@@ -8,6 +8,9 @@ installGlobals();
 
 export default defineConfig({
   plugins: [remix(), tsconfigPaths()],
+  ssr: {
+    noExternal: ["@prismicio/client", "@prismicio/react"],
+  },
   resolve: {
     alias: {
       "slicemachine-adapter-remix/simulator": fileURLToPath(
