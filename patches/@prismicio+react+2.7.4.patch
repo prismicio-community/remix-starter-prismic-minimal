@@ -1,0 +1,12 @@
+diff --git a/node_modules/@prismicio/react/package.json b/node_modules/@prismicio/react/package.json
+index 0726045..77990c0 100644
+--- a/node_modules/@prismicio/react/package.json
++++ b/node_modules/@prismicio/react/package.json
+@@ -1,6 +1,7 @@
+ {
+ 	"name": "@prismicio/react",
+ 	"version": "2.7.4",
++        "type": "module",
+ 	"description": "React components and hooks to fetch and present Prismic content",
+ 	"keywords": [
+ 		"typescript",
