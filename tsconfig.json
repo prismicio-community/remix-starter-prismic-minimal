@@ -23,7 +23,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
+      "slicemachine-adapter-remix/simulator": [
+        "./slicemachine-adapter-remix/dist/simulator"
+      ]
     },
 
     // Vite takes care of building everything, not tsc.

@@ -23,11 +23,6 @@
       "import": "./dist/index.js"
     },
     "./simulator": {
-      "react-server": {
-        "types": "./dist/simulator/react-server/index.d.ts",
-        "require": "./dist/simulator/react-server.cjs",
-        "import": "./dist/simulator/react-server.js"
-      },
       "default": {
         "types": "./dist/simulator/index.d.ts",
         "require": "./dist/simulator.cjs",
@@ -60,5 +55,8 @@
     "@types/common-tags": "^1.8.4",
     "@vitejs/plugin-react": "^4.2.1",
     "vite-plugin-sdk": "^0.1.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }
