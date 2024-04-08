@@ -9,7 +9,15 @@ export const loader = async () => {
   const client = createClient();
   const page = await client.getByUID("page", "home");
 
-  return json({ page });
+  return json(
+    { page },
+    {
+      headers: {
+        "Cache-Control":
+          "s-max-age=2592000, stale-while-revalidate=86400, stale-if-error=604800",
+      },
+    }
+  );
 };
 
 export const headers: HeadersFunction = () => {
