@@ -7,7 +7,7 @@ export const NON_EDITABLE_FILE_BANNER =
 /**
  * The default file path at which environment variables will be stored.
  */
-export const DEFAULT_ENVIRONMENT_VARIABLE_FILE_PATH = ".env.local";
+export const DEFAULT_ENVIRONMENT_VARIABLE_FILE_PATH = ".env";
 
 /**
  * The file paths at which environment variables will be read in order from
