@@ -5,7 +5,6 @@ import {
   JSXMapSerializer,
   PrismicLink,
 } from "@prismicio/react";
-import styles from "./index.module.css";
 import { Link } from "@remix-run/react";
 
 const components: JSXMapSerializer = {
@@ -38,7 +37,7 @@ type RichTextProps = SliceComponentProps<Content.RichTextSlice>;
  */
 const RichText = ({ slice }: RichTextProps): JSX.Element => {
   return (
-    <section className={styles.richtext}>
+    <section className="richtext">
       <PrismicRichText field={slice.primary.content} components={components} />
     </section>
   );
