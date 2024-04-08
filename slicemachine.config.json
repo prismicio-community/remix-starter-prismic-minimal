@@ -1,5 +1,5 @@
 {
-  "repositoryName": "remix-starter-prismic-minimal-ts",
+  "repositoryName": "remix-starter-prismic-minimal",
   "adapter": "slicemachine-adapter-remix",
   "libraries": ["./app/slices"],
   "localSliceSimulatorURL": "http://localhost:5173/slice-simulator",
