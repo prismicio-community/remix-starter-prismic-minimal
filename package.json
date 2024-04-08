@@ -1,10 +1,10 @@
 {
-  "name": "remix-starter-prismic-minimal-ts",
+  "name": "remix-starter-prismic-minimal",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "npm --prefix ./slicemachine-adapter-remix run build && remix vite:build",
+    "build": "npm --workspace slicemachine-adapter-remix run build && remix vite:build",
     "dev": "concurrently \"npm:remix:dev\" \"npm:slicemachine\" --names \"remix,slicemachine\" --prefix-colors blue,magenta",
     "remix:dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
@@ -42,5 +42,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "workspaces": [
+    ".",
+    "./slicemachine-adapter-remix"
+  ]
 }
