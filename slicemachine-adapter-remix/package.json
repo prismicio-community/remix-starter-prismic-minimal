@@ -1,0 +1,60 @@
+{
+  "name": "slicemachine-adapter-remix",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "format": "prettier --write .",
+    "lint": "eslint --max-warnings 0 --ext .js,.ts .",
+    "prepack": "$npm_execpath run build",
+    "size": "size-limit",
+    "test": "yarn lint && yarn types && yarn unit && yarn build && yarn size",
+    "types": "tsc --noEmit",
+    "unit": "vitest run --coverage",
+    "unit:watch": "vitest watch",
+    "depcheck": "depcheck --config=.depcheckrc",
+    "audit": "yarn npm audit --environment production --severity high"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    },
+    "./simulator": {
+      "react-server": {
+        "types": "./dist/simulator/react-server/index.d.ts",
+        "require": "./dist/simulator/react-server.cjs",
+        "import": "./dist/simulator/react-server.js"
+      },
+      "default": {
+        "types": "./dist/simulator/index.d.ts",
+        "require": "./dist/simulator.cjs",
+        "import": "./dist/simulator.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ],
+      "simulator": [
+        "dist/simulator/index.d.ts"
+      ]
+    }
+  },
+  "dependencies": {
+    "@prismicio/simulator": "^0.1.4",
+    "@prismicio/types-internal": "^2.3.1",
+    "@slicemachine/plugin-kit": "^0.4.38",
+    "common-tags": "^1.8.2",
+    "pascal-case": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/common-tags": "^1.8.4",
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite-plugin-sdk": "^0.1.2"
+  }
+}
