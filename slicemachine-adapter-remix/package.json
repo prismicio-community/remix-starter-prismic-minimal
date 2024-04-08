@@ -1,6 +1,7 @@
 {
   "name": "slicemachine-adapter-remix",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
@@ -35,6 +36,9 @@
     },
     "./package.json": "./package.json"
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "*": [
