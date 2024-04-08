@@ -1,5 +1,5 @@
 import { SliceZone } from "@prismicio/react";
-import { HeadersFunction, json } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import { createClient } from "~/prismicio";
@@ -9,22 +9,7 @@ export const loader = async () => {
   const client = createClient();
   const page = await client.getByUID("page", "home");
 
-  return json(
-    { page },
-    {
-      headers: {
-        "Cache-Control":
-          "s-max-age=2592000, stale-while-revalidate=86400, stale-if-error=604800",
-      },
-    }
-  );
-};
-
-export const headers: HeadersFunction = () => {
-  return {
-    "Cache-Control":
-      "s-max-age=2592000, stale-while-revalidate=86400, stale-if-error=604800",
-  };
+  return json({ page });
 };
 
 export default function Index() {
