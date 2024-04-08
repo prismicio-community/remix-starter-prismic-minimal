@@ -14,8 +14,6 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@prismicio/client": "^7.4.0",
-    "@prismicio/react": "^2.7.4",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
@@ -24,6 +22,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@prismicio/client": "^7.4.0",
+    "@prismicio/react": "^2.7.4",
     "@remix-run/dev": "^2.8.1",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
